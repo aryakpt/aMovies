@@ -1,0 +1,127 @@
+@use "../../scss/" as *;
+
+.detail-banner {
+  width: 100%;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to top, $body-bg, rgba(black, 0));
+    @include overlay();
+  }
+}
+
+.detail-content {
+  @include flex(center, center);
+  max-width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -250px;
+  position: relative;
+  padding: 0 2rem;
+
+  &__poster {
+    @include mobile {
+      display: none;
+    }
+    img {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+      // padding-top: 165%;
+    }
+  }
+
+  &__info {
+    width: 70%;
+    padding-left: 3rem;
+
+    @include mobile {
+      width: 100%;
+      padding-left: 0;
+    }
+
+    .title {
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+
+    .genres {
+      margin-bottom: 2rem;
+      & > * ~ * {
+        margin-left: 0.5rem;
+      }
+
+      &__item {
+        padding: 0.5rem 1.5rem;
+        border: 2px solid $white;
+        border-radius: $border-radius;
+        font-size: 0.8rem;
+        font-weight: 600;
+        background-color: $body-bg;
+
+        @include tablet {
+          font-size: 0.6rem;
+        }
+        @include mobile {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .overview {
+      margin-bottom: 2rem;
+    }
+
+    .casts {
+      margin-top: 3rem;
+      &__content {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: 15px;
+        @include mobile {
+          grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        }
+        &__item {
+          img {
+            background-size: cover;
+            margin-bottom: 0.5rem;
+            box-shadow: $box-shadow;
+            border-radius: 5px;
+          }
+
+          figcaption {
+            text-align: center;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.detail-videos {
+  &__item__content {
+    iframe {
+      height: 50rem;
+
+      @include tablet {
+        height: 30rem;
+      }
+      @include mobile {
+        height: 20rem;
+      }
+    }
+  }
+}

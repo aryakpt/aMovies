@@ -1,0 +1,19 @@
+@use "../../../scss/" as *;
+
+.movie-list {
+  .swiper-slide {
+    width: 18%;
+  }
+
+  @include tablet {
+    .swiper-slide {
+      width: 30%;
+    }
+  }
+
+  @include mobile {
+    .swiper-slide {
+      width: 40%;
+    }
+  }
+}

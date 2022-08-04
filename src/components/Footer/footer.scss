@@ -1,0 +1,49 @@
+@use "../../scss/" as *;
+
+.footer {
+  position: relative;
+  padding: 8rem 0;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, $body-bg, rgba(black, 0));
+  }
+  &__content {
+    position: relative;
+
+    &__logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      @include flex(center, center);
+      img {
+        width: 4%;
+        margin-right: 1rem;
+      }
+    }
+
+    &__menus {
+      @include flex(unset, space-around);
+
+      @include mobile {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    &__menu {
+      @include flex(flex-start, flex-start);
+      flex-direction: column;
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+
+      & > * {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
